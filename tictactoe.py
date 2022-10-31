@@ -22,10 +22,6 @@ def showBoard():
 
 player1turn = True
 
-aloudBool = True
-
-showBoard()
-
 gameBool = True
 
 # lets you play
@@ -92,94 +88,76 @@ def playerTurn():
 
 # checks for a win or draw
 def win():
+    global gameBool
     if board["1"] == board["2"] == board["3"] and board["1"] == "x":
         gameBool = False
-        aloudBool = False
         print("X wins!")
         # x wins
     elif board["4"] == board["5"] == board ["6"] and board["4"] == "x":
         gameBool = False
-        aloudBool = False
         print("X wins!")
     elif board["7"] == board["8"] == board ["9"] and board["7"] == "x":
         gameBool = False
-        aloudBool = False
         print("X wins!")
     elif board["1"] == board["4"] == board ["7"] and board["1"] == "x":
         gameBool = False
-        aloudBool = False
         print("X wins!")
     elif board["2"] == board["5"] == board ["8"] and board["2"] == "x":
         gameBool = False
-        aloudBool = False
         print("X wins!")
     elif board["3"] == board["6"] == board ["9"] and board["3"] == "x":
         gameBool = False
-        aloudBool = False
         print("X wins!")
     elif board["1"] == board["5"] == board ["9"] and board["1"] == "x":
         gameBool = False
-        aloudBool = False
         print("X wins!")
     elif board["3"] == board["5"] == board ["7"] and board["7"] == "x":
         gameBool = False
-        aloudBool = False
         print("X wins!")
     # check for o wins
     elif board["1"] == board["2"] == board["3"] and board["1"] == "o":
         gameBool = False
-        aloudBool = False
         print("O wins!")
         # o wins
     elif board["4"] == board["5"] == board ["6"] and board["4"] == "o":
         gameBool = False
-        aloudBool = False
         print("O wins!")
     elif board["7"] == board["8"] == board ["9"] and board["7"] == "o":
         gameBool = False
-        aloudBool = False
         print("O wins!")
     elif board["1"] == board["4"] == board ["7"] and board["1"] == "o":
         gameBool = False
-        aloudBool = False
         print("O wins!")
     elif board["2"] == board["5"] == board ["8"] and board["2"] == "o":
         gameBool = False
-        aloudBool = False
         print("O wins!")
     elif board["3"] == board["6"] == board ["9"] and board["3"] == "o":
         gameBool = False
-        aloudBool = False
         print("O wins!")
     elif board["1"] == board["5"] == board ["9"] and board["1"] == "o":
         gameBool = False
-        aloudBool = False
         print("O wins!")
     elif board["3"] == board["5"] == board ["7"] and board["7"] == "o":
         gameBool = False
-        aloudBool = False
         print("O wins!")
     # draw
     elif used == empty:
         gameBool = False
-        aloudBool = False
         print("Draw!")
     else:
         pass
 
-
+# Introduction
+print("Welcome to tic-tac-toe by willow. X, you go first")
+# the game while loop
 while gameBool:
+    showBoard()
     # check if the spot is taken and if its a number
-    while aloudBool:
-        spot = input("Where do you want to go? (1-9): ")
-        if spot in aloud and spot in used:
-            aloudBool = False
-            playerTurn()
-        else:
-            print("That was not a number from 1 to 9 or someone has already moved there, please try again")
-            pass
-        showBoard()
-        # check for x wins
-    aloudBool = True
+    spot = input("Where do you want to go? (1-9): ")
+    if spot in aloud and spot in used:
+        playerTurn()
+    else:
+        print("That was not a number from 1 to 9 or someone has already moved there, please try again")
+        pass
+    # check for x wins
     win()
-    
