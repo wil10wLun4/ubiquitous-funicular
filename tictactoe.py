@@ -144,8 +144,6 @@ def win():
     elif used == empty:
         gameBool = False
         print("Draw!")
-    else:
-        pass
 
 # Introduction
 print("Welcome to tic-tac-toe by willow. X, you go first")
